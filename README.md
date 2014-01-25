@@ -8,3 +8,5 @@ We prompted the user for multiple parts of speech and stored them in a hash, and
 
 Increment 3 - 
 
+We created an array with three template sentences and looped through the array to display each template to the user with the interpolated parts of speech. We also used pry to look at each template before it was displayed.
+
