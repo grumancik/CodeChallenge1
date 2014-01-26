@@ -10,3 +10,7 @@ Increment 3 -
 
 We created an array with three template sentences and looped through the array to display each template to the user with the interpolated parts of speech. We also used pry to look at each template before it was displayed.
 
+Increment 4 -
+
+We created two classes, one to prompt the user and one to insert the user responses into the sentence templates. The UI object is instantiated and the prompt method is called to get the user's responses. Next, we iterate through an array of sentence template strings and instatiate SentenceTemplate objects and then call the insert method with the sentence string and the hash returned by the prompt method.
+
