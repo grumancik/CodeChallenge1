@@ -24,9 +24,10 @@ class UI
   end  
 end  
 
-module SentenceTemplate
+class SentenceTemplate
 
-  def self.insert(pos_hash, str)
+  def insert(pos_hash, str)
+    binding.pry
     pos_hash.keys.each { |key| str.sub!("(#{key})", pos_hash[key]) }
   end
    
@@ -37,9 +38,11 @@ template_array = ["The (adjective) (noun) suddenly and (adverb) had to (verb) th
   "Eat (noun)."]
 
 ui = UI.new
+binding.pry
 ui.prompt
-template_array.each { |t| SentenceTemplate.insert(ui.parts_of_speech, t)}
-puts template_array.inspect
+template_array.each { |t| SentenceTemplate.new.insert(ui.parts_of_speech, t)}
+puts template_array
+
 
 
 
