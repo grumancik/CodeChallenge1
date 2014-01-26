@@ -5,40 +5,45 @@ require 'pry'
 # noun = gets.chomp
 
 # puts "The #{noun} went to sea in a sturdy ship."
-class UI
-  def prompt
-    parts_of_speech = { :noun => "",
-      :adjective => "",
-      :verb => "",
-      :adverb => "",
-      :object => ""}
-     
 
-    parts_of_speech.each do | part, answer | 
-      puts "Please enter a #{part.to_s}"
-      parts_of_speech[part] = gets.chomp
-    end
+
+class UI
+  POS = %i(noun adjective verb adverb object)
+
+  attr_reader :parts_of_speech
+
+  def initialize()
+    @parts_of_speech = {}
+  end  
+
+  def prompt
+    POS.each do | pos | 
+      puts "Please enter a #{pos}"
+      @parts_of_speech[pos] = gets.chomp
+    end  
   end  
 end  
 
-
 class SentenceTemplate
 
-  def insert do 
-    parts_of_speech[]
-
-  def initialize()
-
-
-    template_array = ["The #{parts_of_speech[:adjective]} #{parts_of_speech[:noun]} suddenly and #{parts_of_speech[:adverb]} had to #{parts_of_speech[:verb]} the #{parts_of_speech[:object]}.",
-      "The #{parts_of_speech[:noun]} #{parts_of_speech[:verb]} over the #{parts_of_speech[:object]}.",
-      "Eat #{parts_of_speech[:noun]}."]
-
-    template_array.each do | template |
-      binding.pry
-      puts template
-    end
+  def insert(pos_hash, str)
+    binding.pry
+    pos_hash.keys.each { |key| str.sub!("(#{key})", pos_hash[key]) }
+  end
+   
 end
+
+template_array = ["The (adjective) (noun) suddenly and (adverb) had to (verb) the (object).",
+  "The (noun) (verb) over the (object).",
+  "Eat (noun)."]
+
+ui = UI.new
+binding.pry
+ui.prompt
+template_array.each { |t| SentenceTemplate.new.insert(ui.parts_of_speech, t)}
+puts template_array
+
+
 
 
 
