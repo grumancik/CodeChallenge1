@@ -14,3 +14,7 @@ Increment 4 -
 
 We created two classes, one to prompt the user and one to insert the user responses into the sentence templates. The UI object is instantiated and the prompt method is called to get the user's responses. Next, we iterate through an array of sentence template strings and instatiate SentenceTemplate objects and then call the insert method with the sentence string and the hash returned by the prompt method.
 
+Increment 5 - 
+
+We created a new method in the UI class to prompt the user to select a mode of transportation. We added that selection to the hash and added an additional sentence template that included the mode of transportation value.
+
